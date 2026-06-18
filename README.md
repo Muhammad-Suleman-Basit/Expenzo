@@ -1,6 +1,6 @@
-# EXPENZO 💜
+# EXPENZO 
 
-**Offline-first personal expense tracker** built with React Native & Expo. Track expenses, set budgets, manage categories, and visualize your spending — all stored **privately on your device**, no internet required.
+**personal expense tracker** built with React Native & Expo. Track expenses, set budgets, manage categories, and visualize your spending — all stored **privately on your device**, no internet required.
 
 ---
 
