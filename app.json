@@ -1,24 +1,37 @@
 {
   "expo": {
-    "name": "ExpenseTracker",
+    "name": "Expenzo",
     "slug": "ExpenseTracker",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/expenzo-icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/expenzo-splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#F3EFFC"
+    },
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "package": "com.expenzo.app",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./assets/expenzo-icon.png",
+        "backgroundColor": "#F3EFFC"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/expenzo-icon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "06c46aaf-a7f8-4d4e-8066-46187c2b0193"
+      }
     }
   }
 }

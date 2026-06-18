@@ -1,0 +1,10 @@
+# Files NOT to upload to the EAS cloud build (keeps the upload small).
+node_modules/
+.expo/
+dist/
+web-build/
+/ios
+/android
+*.log
+.DS_Store
+assets/WhatsApp Image*
