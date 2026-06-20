@@ -10,7 +10,7 @@ import { useExpenses } from "../context/ExpensesContext";
 
 // Colors that are identical in both themes (brand + money + accents).
 const shared = {
-  primary: "#6C5CE7",
+  primary: "#38BDF8",
   primaryLight: "#8B7DF0",
   primaryDark: "#5A4BD6",
   income: "#3FC76A", // green

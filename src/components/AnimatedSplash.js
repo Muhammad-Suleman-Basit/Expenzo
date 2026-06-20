@@ -15,23 +15,24 @@ import React, { useEffect, useRef } from "react";
 import { View, Text, StyleSheet, Animated, Dimensions, Easing } from "react-native";
 import Svg, { Defs, LinearGradient, Stop, Rect, Circle, Path } from "react-native-svg";
 
+
 const { width: W, height: H } = Dimensions.get("window");
 
 // Brand colors (match your icon + splash image)
 const C = {
-  bg: "#F3EFFC",
-  tileA: "#B99DEB",
-  tileB: "#6E4FD0",
+  bg: "#F3F9FD",
+  tileA: "#38BDF8",
+  tileB: "#38BDF8",
   ring: "#FFFFFF",
-  slice: "#E4D9FA",
-  word: "#5E44BD",      // wordmark (solid; see note in chat for a gradient version)
-  tagline: "#8E84AA",
-  tagDot: "#AA96DC",
-  dotPurple: "#6E4FD0",
-  dotLight: "#C6B6F0",
-  waveBack: "#E9E0F9",
-  waveMid: "#DACBF4",
-  waveFront: "#C9BBEE",
+  slice: "#BFEFFF",
+  word: "#38BDF8",
+  tagline: "#38BDF8",
+  tagDot: "#38BDF8",
+  dotPurple: "#38BDF8",
+  dotLight: "#38BDF8",
+  waveBack: "#DDF4FF",
+  waveMid: "#C7ECFF",
+  waveFront: "#B1E4FF",
 };
 
 // Build an SVG arc path (used for the coloured "pie slice" on the donut).
@@ -113,11 +114,11 @@ export default function AnimatedSplash({ onFinish }) {
       {/* background + airy decor */}
       <Svg style={StyleSheet.absoluteFill} width={W} height={H}>
         <Rect x="0" y="0" width={W} height={H} fill={C.bg} />
-        <Circle cx={W * 0.04} cy={H * 0.04} r={W * 0.3} stroke="#C1B2EC" strokeOpacity={0.45} strokeWidth={W * 0.018} fill="none" />
-        <Circle cx={W * 0.98} cy={H * 0.43} r={W * 0.17} fill="#DCD1F7" fillOpacity={0.4} />
-        <Circle cx={W * 0.15} cy={H * 0.2} r={6} fill="#D9CBF4" />
-        <Circle cx={W * 0.8} cy={H * 0.05} r={5} fill="#D9CBF4" />
-        <Circle cx={W * 0.1} cy={H * 0.7} r={7} fill="#D9CBF4" fillOpacity={0.7} />
+        <Circle cx={W * 0.04} cy={H * 0.04} r={W * 0.3} stroke="#38BDF8" strokeOpacity={0.45} strokeWidth={W * 0.018} fill="none" />
+        <Circle cx={W * 0.98} cy={H * 0.43} r={W * 0.17} fill="#38BDF8" fillOpacity={0.4} />
+        <Circle cx={W * 0.15} cy={H * 0.2} r={6} fill="#38BDF8" />
+        <Circle cx={W * 0.8} cy={H * 0.05} r={5} fill="#38BDF8" />
+        <Circle cx={W * 0.1} cy={H * 0.7} r={7} fill="#38BDF8" fillOpacity={0.7} />
       </Svg>
 
       {/* waves (rise in, then gently bob) */}

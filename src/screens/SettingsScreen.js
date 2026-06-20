@@ -276,7 +276,7 @@ export default function SettingsScreen({ navigation }) {
         <View style={styles.card}>
           <Row
             icon="moon"
-            iconBg="#6C5CE7"
+            iconBg="#38BDF8"
             label="Dark Mode"
             right={
               <Switch

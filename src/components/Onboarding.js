@@ -27,7 +27,7 @@ const INACTIVE_DOT = "#D3D3DE";
 const SLIDES = [
   {
     key: "finances",
-    accent: "#6C5CE7", // purple ("blue")
+    accent: "#38BDF8", // purple ("blue")
     tint: "#ECE9FB",
     icon: "wallet",
     title: "Take Control of\nYour Finances",

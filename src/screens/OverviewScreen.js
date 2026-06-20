@@ -14,6 +14,7 @@ import ExpenseListItem from "../components/ExpenseListItem";
 import ProgressBar from "../components/ProgressBar";
 import { lightColors, darkColors, spacing, radius, useTheme } from "../theme/theme";
 import { getMonthKey } from "../utils/format";
+import LiquidWaves from "../components/LiquidWaves";
 
 // Current month as a key like "2026-06".
 function currentMonthKey() {
@@ -80,40 +81,48 @@ export default function OverviewScreen({ navigation }) {
           </Pressable>
         </View>
 
-        {/* ----- SUMMARY CARD (purple) ----- */}
-        <View style={styles.card}>
-          <View style={styles.cardTopRow}>
-            <Text style={styles.cardLabel}>Total Spent</Text>
-            <View style={styles.walletIcon}>
-              <Ionicons name="wallet-outline" size={20} color={colors.white} />
-            </View>
-          </View>
+        {/* ----- SUMMARY CARD (now with an animated liquid-wave background) ----- */}
+        <View style={styles.cardWrap}>
+          <View style={styles.card}>
+            {/* Waves sit BEHIND the content and are clipped to the card's
+                rounded corners by `overflow: 'hidden'` on styles.card. */}
+            <LiquidWaves />
 
-          <Text style={styles.cardAmount}>{formatMoney(totalSpent)}</Text>
+            <View style={styles.cardInner}>
+              <View style={styles.cardTopRow}>
+                <Text style={styles.cardLabel}>Total Spent</Text>
+                <View style={styles.walletIcon}>
+                  <Ionicons name="wallet-outline" size={20} color={colors.white} />
+                </View>
+              </View>
 
-          {/* Two sub-cards: This Month spend (tap to view the month's
-              expenses), and number of transactions. */}
-          <View style={styles.subRow}>
-            <Pressable
-              style={styles.subCard}
-              onPress={() => navigation.navigate("MonthlyExpenses")}
-            >
-              <View style={styles.subCircle}>
-                <Ionicons name="calendar-outline" size={16} color={colors.primary} />
-              </View>
-              <View>
-                <Text style={styles.subLabel}>This Month</Text>
-                <Text style={styles.subValue}>{formatMoney(thisMonthSpent)}</Text>
-              </View>
-            </Pressable>
+              <Text style={styles.cardAmount}>{formatMoney(totalSpent)}</Text>
 
-            <View style={styles.subCard}>
-              <View style={styles.subCircle}>
-                <Ionicons name="receipt-outline" size={16} color={colors.primary} />
-              </View>
-              <View>
-                <Text style={styles.subLabel}>Transactions</Text>
-                <Text style={styles.subValue}>{count}</Text>
+              {/* Two sub-cards: This Month spend (tap to view the month's
+                  expenses), and number of transactions. */}
+              <View style={styles.subRow}>
+                <Pressable
+                  style={styles.subCard}
+                  onPress={() => navigation.navigate("MonthlyExpenses")}
+                >
+                  <View style={styles.subCircle}>
+                    <Ionicons name="calendar-outline" size={16} color={colors.primary} />
+                  </View>
+                  <View>
+                    <Text style={styles.subLabel}>This Month</Text>
+                    <Text style={styles.subValue}>{formatMoney(thisMonthSpent)}</Text>
+                  </View>
+                </Pressable>
+
+                <View style={styles.subCard}>
+                  <View style={styles.subCircle}>
+                    <Ionicons name="receipt-outline" size={16} color={colors.primary} />
+                  </View>
+                  <View>
+                    <Text style={styles.subLabel}>Transactions</Text>
+                    <Text style={styles.subValue}>{count}</Text>
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -218,17 +227,29 @@ function makeStyles(colors) {
     elevation: 2,
   },
 
-  // Summary card
-  card: {
-    backgroundColor: colors.primary,
+  // Summary card — split into 3 pieces so the animated waves can be clipped to
+  // the rounded corners while the colored glow/shadow still extends outside.
+  cardWrap: {
+    // Holds the shadow + soft colored glow. NOT clipped, so the glow can spill
+    // past the card edges the way it did before.
     borderRadius: radius.lg,
-    padding: spacing.lg,
     marginBottom: spacing.lg,
+    backgroundColor: colors.primary,
     shadowColor: colors.primary,
     shadowOpacity: 0.4,
     shadowRadius: 16,
     shadowOffset: { width: 0, height: 8 },
     elevation: 6,
+  },
+  card: {
+    // Clips the waves to the rounded rectangle.
+    borderRadius: radius.lg,
+    overflow: "hidden",
+    backgroundColor: colors.primary,
+  },
+  cardInner: {
+    // The original padding now wraps the actual content (above the waves).
+    padding: spacing.lg,
   },
   cardTopRow: {
     flexDirection: "row",
