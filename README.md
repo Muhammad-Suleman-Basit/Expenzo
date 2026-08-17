@@ -171,4 +171,4 @@ All data (expenses, budget, categories, settings) is stored **locally** on your 
 
 ## 📄 License
 
-Personal project — all rights reserved. (Add a license here if you plan to open-source it.)
+Personal project — all rights reserved. 
